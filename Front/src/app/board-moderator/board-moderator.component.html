@@ -1,0 +1,119 @@
+ <!-- <div class="container">
+  <header class="jumbotron">
+    <p>{{ content }}</p>
+  </header>
+</div>
+
+  -->
+
+
+  <div class="container-fluid" style="margin-top: 55px;">
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar"   >
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/mod"> 
+                <i class="fas fa-user"></i>My Account
+              </a>
+            </li>
+      
+      
+           <li class="nav-item">
+              <a class="nav-link " routerLink="/Messages">
+                <i class="fas fa-user"></i>Messages
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " routerLink="/content">
+                <i class="fas fa-user"></i>Assignments
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link " routerLink="/content">
+                <i class="fas fa-user"></i>Activities
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link " routerLink="/content">
+                <i class="fas fa-user"></i>Results
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link " routerLink="/content">
+                <i class="fas fa-user"></i>Fees
+              </a>
+            </li>
+             
+
+          </ul>
+ 
+        </div>
+      </nav>
+
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+       
+     
+
+        
+        <div class="table-responsive">
+          
+                <div class="inner-adjust">
+          
+             
+                 
+                               
+          <div class="d-flex justify-content-between">
+            <div>
+              <h2>My Account</h2>
+            </div>
+            <div>
+        
+              
+           
+        
+        
+             </div>
+        </div>
+             
+        <hr/>
+                 
+        <div class="container" *ngIf="currentUser; else loggedOut">
+          
+          <p>
+            <strong>Token:</strong>
+            {{ currentUser.accessToken.substring(0, 20) }} ...
+            {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}
+          </p>
+
+          <p>
+            <strong>Name:</strong>
+            {{ currentUser.username }}
+          </p>
+
+
+          <p>
+            <strong>Email:</strong>
+            {{ currentUser.email }}
+          </p>
+          <strong>Roles:</strong>
+          <ul>
+            <li *ngFor="let role of currentUser.roles">
+              {{ role }}
+            </li>
+          </ul>
+        </div>
+                 
+        <ng-template #loggedOut>
+          Please login.
+        </ng-template>
+                </div>
+            
+        </div>
+      </main>
+    
+
+ 

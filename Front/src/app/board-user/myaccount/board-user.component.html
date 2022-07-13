@@ -1,0 +1,142 @@
+<!-- <div class="container">
+  <header class="jumbotron">
+    <p>{{ content }}</p>
+  </header>
+</div>
+
+  -->
+
+
+  <div class="container-fluid" style="margin-top: 55px;">
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar " style="background-color:#9A07B8;"   >
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/user"> 
+                <i class="fas fa-user"></i>My Account
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " routerLink="/myitems">
+                <i class="fas fa-user"></i> My Items
+              </a>
+            </li>
+      
+           <li class="nav-item">
+              <a class="nav-link " routerLink="/orders">
+                <i class="fas fa-user"></i> My Orders
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " routerLink="/myorder">
+                <i class="fas fa-user"></i>Past Orders
+              </a>
+            </li>
+
+           
+           
+
+          </ul>
+ 
+        </div>
+      </nav>
+
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+       
+     
+
+        
+        <div class="table-responsive">
+          
+                <div class="inner-adjust">
+          
+             
+                 
+                               
+          <div class="d-flex justify-content-between">
+            <div>
+              <h2>My Account</h2>
+            </div>
+            <div>
+        
+              
+           
+        
+        
+             </div>
+        </div>
+             
+        <hr/>
+                 
+        <!-- <div class="container" *ngIf="currentUser; else loggedOut">
+          
+          <p>
+            <strong>Token:</strong>
+            {{ currentUser.accessToken.substring(0, 20) }} ...
+            {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}
+          </p>
+
+          <p>
+            <strong>Name:</strong>
+            {{ currentUser.username }}
+          </p>
+
+
+          <p>
+            <strong>Email:</strong>
+            {{ currentUser.email }}
+          </p>
+          <strong>Roles:</strong>
+          <ul>
+            <li *ngFor="let role of currentUser.roles">
+              {{ role }}
+            </li>
+          </ul>
+        </div> -->
+        <div class="container">
+          <div class="container" *ngIf="currentUser; else loggedOut" style="margin-top: 75px;">
+            <p>
+              <strong>Email:</strong>
+              {{ currentUser.email }}
+            </p>
+            <p> 
+              <strong>username:</strong>
+              {{ currentUser.username }}
+            </p>
+            <p> 
+              <strong>phone:</strong>
+              {{ currentUser.phone }}
+            </p>
+            <p> 
+              <strong>name:</strong>
+              {{ currentUser.name }}
+            </p>
+            <p> 
+              <strong>Id:</strong>
+              {{ currentUser._id }}
+            </p>
+
+            <strong>Roles:</strong>
+            <ul>
+              <li *ngFor="let role of currentUser.roles">
+                {{ role }}
+              </li>
+            </ul>
+          </div>
+          
+          <ng-template #loggedOut>
+            Please login.
+          </ng-template> 
+          </div>
+                 
+        <ng-template #loggedOut>
+          Please login.
+        </ng-template>
+                </div>
+            
+        </div>
+      </main>
+    
+
+      

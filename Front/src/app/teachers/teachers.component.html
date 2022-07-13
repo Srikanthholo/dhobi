@@ -1,0 +1,357 @@
+<!-- <div class="container">
+  <header class="jumbotron">
+    <p>{{ content }}</p>
+  </header>
+</div>
+
+  -->
+ 
+ 
+<!-- Sidebar navigation -->
+<div class="container-fluid" style="margin-top: 55px;">
+    <div class="row">
+    
+    <nav class="col-md-2 d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+    
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/admin"> 
+              <i class="fas fa-user"></i>Dashboard
+            </a>
+          </li>
+    
+    
+  
+          <li class="nav-item">
+            <a class="nav-link active " routerLink="/teachers">
+              <i class="fas fa-user"></i>Teachers
+            </a>
+          </li>
+          
+
+          <li class="nav-item">
+            <a class="nav-link " routerLink="/userlist">
+              <i class="fas fa-user"></i>students
+            </a>
+          </li>
+          <!-- Calling SignOut() Api from AuthService -->
+           
+           
+           
+           
+           
+        </ul>
+      </div>
+    </nav>
+        
+        <!-- Main content -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="inner-adjust">
+    
+      
+                <div class="d-flex justify-content-between">
+                <div>
+                <h2>Teachers</h2>
+                </div>
+                <div>
+                <button  class="btn btn-primary " (click)="clickAddStudent()" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="fas fa-plus"></i>Add Teacher
+                </button>
+    
+    
+                </div>
+                </div>
+    
+                <hr/>
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+       
+    <!-- table-->
+        
+        
+            <div class="d-flex justify-content-between"  style="margin-bottom:10px;">
+            <div>
+            <div class="d-flex justify-content-between">
+            <div>
+            <label for="cars">Records per page : &nbsp;</label>
+            </div>
+            <div>              
+            <select (change)="onTableSizeChange($event)">
+            <option *ngFor="let size of tableSizes"> {{size}}</option>
+            
+            </select>
+            </div>
+            </div>
+            
+            
+            
+            </div>
+            <div>
+            <div>
+            <div class="d-flex justify-content-between">
+            <div>
+            <label for="cars">Search: &nbsp;</label>
+            </div>
+            <div>              
+            <input type="text" name= "search" [(ngModel)]="searchterm">
+            </div>
+            </div>
+            </div>  
+            </div>
+            </div>
+            
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    <div class="content">
+    
+    
+    <div class="d-flex align-content-stretch flex-wrap">
+      <div class="card" style="width: 16rem; margin: 12px;" 
+      *ngFor="let stu of studentData |filter:searchterm | paginate:{itemsPerPage: tableSize,currentPage: page , totalItems:count}  let i = index">
+            
+      <img class="card-img-top"  id="currentPhoto" src="{{stu.photourl}}" onerror="this.onerror=null; this.src=' ../../assets/noimage.jpg'" alt="" width="50" height="60">
+      <div class="card-body">
+      <h5 class="card-title">  {{stu.name|titlecase}} </h5>
+      <p class="card-text"> {{stu.location|titlecase}}</p>
+      </div>
+      <div class="card-footer">
+      <a href="#"  routerLink="/profile/{{stu.id}}"  target="_blank" class="btn btn-primary" style="margin-right: 5px;"> Profile</a>
+      <button (click)="onEdit(stu)" type ="button" class="btn btn-primary"
+      data-bs-toggle="modal" data-bs-target="#teacherModal">Edit</button>
+      <button (click)="getteacher(stu.id)" type ="button" class="btn btn-primary"
+      data-bs-toggle="modal" data-bs-target="#viewModal" style="margin-left: 5px;">Details</button>
+    
+      </div>
+            
+      </div>
+     
+      </div>
+     
+     
+     
+    <div class="data">
+      
+      
+      <div>
+        <pagination-controls
+        previousLabel=" Prev"
+        nextLabel="Next"
+    
+        (pageChange)="onTableDataChange($event)"></pagination-controls>
+    
+      </div>  
+    
+      
+    
+    
+    </div>
+    
+    <!-- table-->
+    
+    <!-- teacher modal-->
+     
+     
+     
+     
+    
+    <!-- Modal -->
+    <div class="modal fade" id="teacherModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">TeacherDetails</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup] ="stunderform">
+            <div class="mb-3">
+            <label class="form-label" >Name</label>
+            <input type="text" class="form-control" formControlName="name">
+            </div>
+            <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" formControlName="email">
+            </div>
+            <div class="mb-3">
+            <label class="form-label">Phone</label>
+            <input type="text" class="form-control" formControlName="mobile">
+            </div>
+            <div class="mb-3">
+            <label class="form-label">Fees</label>
+            <input type="text" class="form-control" formControlName="fees">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Location</label>
+              <input type="text" class="form-control" formControlName="location">
+              </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" *ngIf="showSave" (click)="postStudentDetails()" class="btn btn-primary">Save</button>
+            <button type="button" *ngIf="showUpdate" (click)="updateStudentDetails()" class="btn btn-primary" data-dismiss="modal">Update</button>
+          
+        </div>
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+        </div>
+      </div>
+    </div>
+    
+    <!-- teacher modal-->
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{modaltitle}} </h5> 
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup] ="stunderform">
+                <div class="mb-3">
+                <label class="form-label" >Name</label>
+                <input type="text" class="form-control" formControlName="name">
+                </div>
+                <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" formControlName="email">
+                </div>
+                <div class="mb-3">
+                <label class="form-label">Phone</label>
+                <input type="text" class="form-control" formControlName="mobile">
+                </div>
+    
+                <div class="mb-3">
+                <label class="form-label">Fees</label>
+                <input type="text" class="form-control" formControlName="fees">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Location</label>
+                  <input type="text" class="form-control" formControlName="location">
+                  </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" *ngIf="showSave" (click)="postStudentDetails()" class="btn btn-primary">Save</button>
+                <button type="button" *ngIf="showUpdate" (click)="updateStudentDetails()" class="btn btn-primary" data-dismiss="modal">Update</button>
+              
+            </div>
+        </div>
+    </div>
+    </div>
+       
+       
+       
+       
+      
+      
+     
+     
+     
+     
+     
+     
+    
+    <!-- Modal -->
+    <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <div class="card mb-3" style="max-width: 540px;">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img  class="card-img-top"    src="{{studentData.photourl}}" onerror="this.onerror=null; this.src='../../assets/noimage.jpg'"/>
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">{{studentData.name|titlecase}}</h5>
+                    <p class="card-text"> Email : {{studentData.email|titlecase}}</p>
+                    <p class="card-text"> Modile: {{studentData.mobile|titlecase}}</p>
+                    <p class="card-text"> Location: {{studentData.location|titlecase}}</p>
+                    <p class="card-text"> Fees: {{studentData.fees|titlecase}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+          
+          
+        </div>
+      </div>
+    </div>
+       
+      
+    <!-- Modal --> 
+       
+    
+      
+      
+      
+    </div>
+    </div>

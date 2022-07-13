@@ -1,0 +1,201 @@
+<!-- <div class="container">
+  <header class="jumbotron">
+    <p>{{ content }}</p>
+  </header>
+</div>
+
+  -->
+
+
+ <div class="container-fluid" style="margin-top: 55px;">
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar"   >
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/admin"> 
+                <i class="fas fa-user"></i>Dashboard
+              </a>
+            </li>
+      
+      
+            
+            <li class="nav-item">
+              <a class="nav-link " routerLink="/teachers">
+                <i class="fas fa-user"></i>Teachers
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " routerLink="/userlist">
+                <i class="fas fa-user"></i>Students
+              </a>
+            </li>
+          </ul>
+ 
+        </div>
+      </nav>
+
+    
+        <!-- <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+          <h1 class="h2">Admin Dashboard</h1>
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group mr-2">
+              <button class="btn btn-sm btn-outline-secondary">Share</button>
+              <button class="btn btn-sm btn-outline-secondary">Export</button>
+            </div>
+            <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+              <span data-feather="calendar"></span>
+              This week
+            </button>
+          </div>
+        </div> -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <div class="inner-adjust">
+    
+           
+           
+            </div>
+   
+          
+          
+          
+          <div class="d-flex justify-content-between">
+            <div>
+     
+                <h4 style="margin-bottom: 16px; font-size: 18px; font-weight: lighter;">DASHBOARD</h4>
+            </div>
+            <div>
+            </div>
+          </div>
+             
+         
+          <div class="row" >
+            <div class="col-sm-6">
+              <div class="card" style="background-color: #589bff; height: 250px;">
+                <div class="card-body">
+                  <h5 class="card-title" style="padding-top: 15px; font-size: 30px; color: #fff; font-weight: lighter;">Hello Srikanth</h5>
+                  <p class="card-text" style="padding-top: 15px; font-size: 20px; color: rgb(183, 214, 243);">Welcome back, your dashboard is ready!
+    
+                  </p>
+                   <button type="button" class="btn btn-outline-light" style="  margin-top:35px;  font-size: 20px; ">Get Started <i class='fas fa-arrow-right'></i>
+                   </button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card" style=" height: 250px;">
+                <div class="card-body">
+                  <h5 class="card-title"> Analytics</h5>
+                  <div class="card-group">
+                    <div class="card">
+                     
+                      <div class="card-body">
+                        <h5 class="card-title">Students</h5>
+                        <h1 class="mb-0" data-toggle="counter-up">1500</h1>
+                         
+                      </div>
+                    </div>
+                    <div class="card">
+                       
+                      <div class="card-body">
+                        <h5 class="card-title">Teachers</h5>
+                        <h1 class="mb-0" data-toggle="counter-up">60</h1>
+                       
+                      </div>
+                    </div>
+                    <div class="card">
+                       
+                      <div class="card-body">
+                        <h5 class="card-title">Admin Staff</h5>
+                        <h1 class="mb-0" data-toggle="counter-up">25</h1>
+                      
+                      </div>
+                    </div>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+                 
+          <div class="card" >
+            <div class="card-header">
+              <h5> Featured Students</h5> 
+            </div>
+            <div class="card-body">
+              <div >
+                <table class="table table-striped table-light">
+                  <thead class="table-dark">
+                      <tr>
+                          <th scope="col"> Id </th>
+                          <th scope="col"> Name </th>
+                          <th scope="col"> Email </th>
+                          <th scope="col"> Mobile </th>
+                          <th scope="col"> Fees </th>
+                          <th scope="col"> Location </th>
+                          <th scope="col">  </th>
+                         
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let stu of studentData.slice(0, 5); let i = index"  >
+                       <td>{{stu.id}}</td>
+                          <td> {{stu.name}}</td>
+                          <td> {{stu.email}}</td>
+                          <td> {{stu.mobile}}</td>
+                          <td> {{stu.fees}}</td>
+                          <td> {{stu.location}}</td>
+                          <td>
+                            
+                            
+                            
+                          </td>
+                      </tr>
+                  </tbody>
+              
+              
+              </table>
+    
+              </div>                                   
+               
+               
+            </div>
+   
+          
+         
+          </div>
+         
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+              
+              
+ 
+         
+      
+      
+         
+         
+         
+                    
+            
+            
+        </main>
+    
+      </div>
+    </div>
